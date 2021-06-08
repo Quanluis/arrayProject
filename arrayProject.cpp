@@ -8,32 +8,87 @@
 
 using namespace std;
 
-// Global Variables
+void createArrayTwo() {
+
+    const int numbersTwo = 200; 
+
+    int j = 0; 
+
+    float numTwo[numbersTwo]; 
+
+    string file; 
+
+    ifstream inputFile("random.txt");
+
+    while (!inputFile.eof()) {
+        inputFile >> numTwo[j];
+            j++;
+    };
+
+    for (int i = 0; i < j; i++) {
+        cout << numTwo[i] << endl;
+    }
+
+}
+
+void createArraysOne() {
+
+    const int numbersOne = 200;
+
+    int j = 0;
+
+    float num[numbersOne];
+
+    string file;
+
+    ifstream inputfile("random.txt");
+
+    while (!inputfile.eof()) {
+        inputfile >> num[j];
+        j++;
+    };
+
+    for (int i = 0; i < j; i++) {
+        cout <<  num[i] << endl;
+    }
+
+}
+
+void checkFile() {
+
+    ifstream inputFile;
+
+    //Variables
+
+    inputFile.open("random.txt");
 
 
-//Functions
+    if (!inputFile) {
+        cout << "File not found" << endl;
+    }
+    else {
+        cout << "File found." << endl;
+
+        cout << endl;
+    }
+
+    inputFile.close();
+
+
+};
 
 
 int main()
 {
 
-    ifstream inputFile;
+    checkFile();
+    createArraysOne();
 
-    string file;
-   
-    //Variables
+    cout << " " << endl; 
+    cout << " " << endl;
 
-    inputFile.open("random.txt");
-   
-
-    if (!inputFile.is_open()) {
-        cout << "File not found" << endl;
-    }
-    else {
-        cout << "File found" << endl;
-    }
-
-    inputFile.close();
+    createArrayTwo();
+    
 
 }
 
