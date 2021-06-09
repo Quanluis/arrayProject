@@ -8,7 +8,40 @@
 
 using namespace std;
 
-void createArrayTwo() {
+class Sort {
+
+        private:
+
+        public: 
+
+        //Constructor
+
+        Sort() {
+
+            cout << "Running program." << endl;
+
+            createArrayTwo();
+            createArraysOne();
+            checkFile();
+            bubblesort();
+
+        };
+
+        //Sort function prototypes
+
+        int createArrayTwo();
+        void createArraysOne();
+        void checkFile();
+        void bubblesort();
+        void display();
+
+};
+
+// Sort member function implementation
+
+int Sort::createArrayTwo() {
+
+    //variables
 
     const int numbersTwo = 200; 
 
@@ -29,9 +62,13 @@ void createArrayTwo() {
         cout << numTwo[i] << endl;
     }
 
+    return  j;
+
 }
 
-void createArraysOne() {
+void Sort::createArraysOne() {
+
+    //variables
 
     const int numbersOne = 200;
 
@@ -54,11 +91,9 @@ void createArraysOne() {
 
 }
 
-void checkFile() {
+void Sort::checkFile() {
 
     ifstream inputFile;
-
-    //Variables
 
     inputFile.open("random.txt");
 
@@ -74,21 +109,30 @@ void checkFile() {
 
     inputFile.close();
 
-
 };
+
+
+void Sort::bubblesort() {
+
+ 
+
+}
+
+void Sort::display() {
+
+    void createArrayTwo();
+    void createArraysOne();
+    void checkFile();
+    void bubblesort();
+
+}
 
 
 int main()
 {
+    Sort m;
 
-    checkFile();
-    createArraysOne();
-
-    cout << " " << endl; 
-    cout << " " << endl;
-
-    createArrayTwo();
-    
+    return 0;
 
 }
 
