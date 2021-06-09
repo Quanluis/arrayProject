@@ -20,76 +20,24 @@ class Sort {
 
             cout << "Running program." << endl;
 
-            createArrayTwo();
-            createArraysOne();
+
             checkFile();
-            bubblesort();
+
+            createArraysOne();
 
         };
 
         //Sort function prototypes
 
-        int createArrayTwo();
+        void createArrayTwo();
         void createArraysOne();
         void checkFile();
-        void bubblesort();
         void display();
 
 };
 
 // Sort member function implementation
 
-int Sort::createArrayTwo() {
-
-    //variables
-
-    const int numbersTwo = 200; 
-
-    int j = 0; 
-
-    float numTwo[numbersTwo]; 
-
-    string file; 
-
-    ifstream inputFile("random.txt");
-
-    while (!inputFile.eof()) {
-        inputFile >> numTwo[j];
-            j++;
-    };
-
-    for (int i = 0; i < j; i++) {
-        cout << numTwo[i] << endl;
-    }
-
-    return  j;
-
-}
-
-void Sort::createArraysOne() {
-
-    //variables
-
-    const int numbersOne = 200;
-
-    int j = 0;
-
-    float num[numbersOne];
-
-    string file;
-
-    ifstream inputfile("random.txt");
-
-    while (!inputfile.eof()) {
-        inputfile >> num[j];
-        j++;
-    };
-
-    for (int i = 0; i < j; i++) {
-        cout <<  num[i] << endl;
-    }
-
-}
 
 void Sort::checkFile() {
 
@@ -111,11 +59,82 @@ void Sort::checkFile() {
 
 };
 
+void Sort::createArraysOne() {
 
-void Sort::bubblesort() {
+    //variables
 
- 
+    const int numbersOne = 201;
 
+    int j = 0;
+
+    int swap;
+
+    int exchanges = 0;
+
+    int num[numbersOne];
+
+    string file;
+
+    ifstream inputfile("random.txt");
+
+    while (!inputfile.eof()) {
+        inputfile >> num[j];
+        j++;
+    };
+
+    for (int i = 0; i <= 201; i++) {
+
+
+        for (j= i+1; j <= 200; j++) {
+            
+            if (num[i] > num[j]) {
+                swap = num[i];
+                num[i] = num[j];
+                num[j] = swap;
+
+                exchanges += 1;
+
+            }
+
+        }
+    }
+
+    // for loop to show the bubblesort works
+
+    for (int i = 1; i < numbersOne; i++) {
+        cout << num[i] << endl;    
+    }
+
+    cout << " " << endl;
+
+    // exchanges
+
+    cout << exchanges << " exchanges were made." << endl;
+
+}
+
+void Sort::createArrayTwo() {
+
+    //variables
+
+    const int numbersTwo = 200; 
+
+    int j = 0; 
+
+    float numTwo[numbersTwo]; 
+
+    string file; 
+
+    ifstream inputFile("random.txt");
+
+    while (!inputFile.eof()) {
+        inputFile >> numTwo[j];
+            j++;
+    };
+
+    for (int i = 0; i < j; i++) {
+        cout << numTwo[i] << endl;
+    }
 }
 
 void Sort::display() {
@@ -123,7 +142,6 @@ void Sort::display() {
     void createArrayTwo();
     void createArraysOne();
     void checkFile();
-    void bubblesort();
 
 }
 
