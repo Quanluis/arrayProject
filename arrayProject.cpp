@@ -25,6 +25,8 @@ class Sort {
 
             createArraysOne();
 
+            createArrayTwo();
+
         };
 
         //Sort function prototypes
@@ -53,6 +55,7 @@ void Sort::checkFile() {
         cout << "File found." << endl;
 
         cout << endl;
+        
     }
 
     inputFile.close();
@@ -121,7 +124,11 @@ void Sort::createArrayTwo() {
 
     int j = 0; 
 
-    float numTwo[numbersTwo]; 
+    int exhanges = 0;
+
+    int startscan, minIndex, minValue;
+
+    int numTwo[numbersTwo]; 
 
     string file; 
 
@@ -132,9 +139,41 @@ void Sort::createArrayTwo() {
             j++;
     };
 
-    for (int i = 0; i < j; i++) {
+    for (startscan = 0; startscan < (numbersTwo - 1); startscan++) {
+
+        minIndex = startscan;
+        minValue = numTwo[startscan];
+
+        for (int index = startscan + 1; index < numbersTwo; index++) {
+
+            if (numTwo[index] < minValue) {
+
+                minValue = numTwo[index];
+                minIndex = index;
+
+                exhanges += 1;
+
+            }
+
+        }
+
+        numTwo[minIndex] = numTwo[startscan];
+        numTwo[startscan] = minValue;
+
+    }
+
+    // display to show selection sort works
+
+    for (int i = 0; i < numbersTwo; i++) {
         cout << numTwo[i] << endl;
     }
+
+
+    cout << " " << endl; 
+
+    cout << exhanges << " exchanges were made." << endl;
+    
+
 }
 
 void Sort::display() {
