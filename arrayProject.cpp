@@ -114,6 +114,32 @@ void Sort::createArraysOne() {
 
     cout << exchanges << " exchanges were made." << endl;
 
+
+    void linearSearch(); {
+
+        int index = 0;
+        int position = -1;
+        bool found = false;
+
+        while (index < numbersOne && !found) {
+            if (num[index] == 869) {
+                found == true;
+                position = index;
+            }
+
+            index++;
+
+        }
+
+        cout << num[position] << " Had to go through " << position << " lines to be found." << endl;
+
+        cout << endl;
+
+    };
+
+
+    void linearSearch();
+
 }
 
 void Sort::createArrayTwo() {
