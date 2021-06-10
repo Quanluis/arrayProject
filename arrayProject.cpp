@@ -20,20 +20,15 @@ class Sort {
 
             cout << "Running program." << endl;
 
-
-            checkFile();
-
-            createArraysOne();
-
-            createArrayTwo();
-
+            display();
+            
         };
 
         //Sort function prototypes
 
-        void createArrayTwo();
-        void createArraysOne();
         void checkFile();
+        void createArraysOne();
+        void createArrayTwo();
         void display();
 
 };
@@ -46,10 +41,12 @@ void Sort::checkFile() {
     ifstream inputFile;
 
     inputFile.open("random.txt");
-
+     
 
     if (!inputFile) {
         cout << "File not found" << endl;
+
+        exit(0);
     }
     else {
         cout << "File found." << endl;
@@ -75,6 +72,8 @@ void Sort::createArraysOne() {
     int exchanges = 0;
 
     int num[numbersOne];
+
+    int comparison = 0;
 
     string file;
 
@@ -102,6 +101,10 @@ void Sort::createArraysOne() {
         }
     }
 
+    cout << "Array one sorted." << endl;
+
+    cout << endl;
+
     // for loop to show the bubblesort works
 
     for (int i = 1; i < numbersOne; i++) {
@@ -110,21 +113,21 @@ void Sort::createArraysOne() {
 
     cout << " " << endl;
 
-    // exchanges
-
     cout << exchanges << " exchanges were made." << endl;
-
 
     void linearSearch(); {
 
         int index = 0;
         int position = -1;
         bool found = false;
+        int comparison = 0;
 
         while (index < numbersOne && !found) {
+            comparison++;
             if (num[index] == 869) {
                 found == true;
                 position = index;
+
             }
 
             index++;
@@ -133,10 +136,11 @@ void Sort::createArraysOne() {
 
         cout << num[position] << " Had to go through " << position << " lines to be found." << endl;
 
+        cout << "A total of " << comparison << " comparisons were made to find " << num[position] << "." << endl;
+
         cout << endl;
 
     };
-
 
     void linearSearch();
 
@@ -150,7 +154,7 @@ void Sort::createArrayTwo() {
 
     int j = 0; 
 
-    int exhanges = 0;
+    int exchanges = 0;
 
     int startscan, minIndex, minValue;
 
@@ -177,7 +181,7 @@ void Sort::createArrayTwo() {
                 minValue = numTwo[index];
                 minIndex = index;
 
-                exhanges += 1;
+                exchanges += 1;
 
             }
 
@@ -188,26 +192,60 @@ void Sort::createArrayTwo() {
 
     }
 
+    cout << "Array two sorted." << endl;
+
+    cout << endl;
+
     // display to show selection sort works
 
     for (int i = 0; i < numbersTwo; i++) {
         cout << numTwo[i] << endl;
     }
 
-
     cout << " " << endl; 
 
-    cout << exhanges << " exchanges were made." << endl;
-    
+    cout << exchanges << " exchanges were made." << endl;
 
+
+    void binarySearch(); {
+
+        int first = 0;
+        int end = numbersTwo - 1;
+        int middle;
+        int position = -1;
+        bool found = false;
+        int comparison = 0; 
+
+        while (!found && first <= end) {
+            middle = (first + end) / 2;
+            comparison++;
+            if (numTwo[middle] == 869) {
+                found = true;
+                position = middle;
+            }
+            else if (numTwo[middle] > 869) {
+                end = middle - 1;  
+            }
+            else
+                first = middle + 1;
+        }
+
+        cout << numTwo[position] << " was found in element " << position << " of the array!" << endl;
+
+        cout << "A total of " << comparison << " comparisons were made to find " << numTwo[position] << "." << endl;
+
+    };
+
+    void binarySearch();
+ 
 }
 
 void Sort::display() {
 
-    void createArrayTwo();
-    void createArraysOne();
-    void checkFile();
-
+    checkFile();
+    createArraysOne();
+    createArrayTwo();
+   
 }
 
 
